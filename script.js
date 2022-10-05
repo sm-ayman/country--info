@@ -32,7 +32,30 @@ searchBtn.addEventListener('click', function () {
                         <span>${data[0].region}</span>
                     </div>
                 </div>
-                
+                <div class="wrapper">
+                    <div class="data-wrapper">
+                        <h4>Capital: </h4>
+                        <span>${data[0].capital[0]}</span>
+                    </div>
+                </div>
+                <div class="wrapper">
+                    <div class="data-wrapper">
+                        <h4>Population: </h4>
+                        <span>${data[0].population}</span>
+                    </div>
+                </div>
+                <div class="wrapper">
+                    <div class="data-wrapper">
+                        <h4>Currency: </h4>
+                        <span>${data[0].currencies[Object.keys(data[0].currencies)].name} - ${Object.keys(data[0].currencies).toString()} - ${data[0].currencies[Object.keys(data[0].currencies)].symbol}</span>
+                    </div>
+                </div>
+                <div class="wrapper">
+                    <div class="data-wrapper">
+                        <h4>Language: </h4>
+                        <span>${Object.values(data[0].languages).toString()}</span>
+                    </div>
+                </div>
             `;
         });
 })
