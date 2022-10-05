@@ -12,17 +12,19 @@ searchBtn.addEventListener('click', function () {
     fetch(finalURL)
         .then((res) => res.json())
         .then((data) => {
-            console.log(data[0]);
-            console.log(data[0].capital[0]);
-            console.log(data[0].flags.svg);
-            console.log(data[0].name.common);
-            console.log(data[0].region);
-            console.log(data[0].population);
-            console.log(
-                Object.values(data[0].languages).toString()
-            );
-            console.log(Object.keys(data[0].currencies).toString());
-            console.log(data[0].currencies[Object.keys(data[0].currencies)].name);
+
+            // console.log(data[0]);
+            // console.log(data[0].capital[0]);
+            // console.log(data[0].flags.svg);
+            // console.log(data[0].name.common);
+            // console.log(data[0].region);
+            // console.log(data[0].population);
+            // console.log(
+            //     Object.values(data[0].languages).toString()
+            // );
+            // console.log(Object.keys(data[0].currencies).toString());
+            // console.log(data[0].currencies[Object.keys(data[0].currencies)].name);
+
             result.innerHTML = `
                 <img src="${data[0].flags.svg}" class="flag-img">
                 <h2>${data[0].name.common}</h2>
@@ -57,14 +59,18 @@ searchBtn.addEventListener('click', function () {
                     </div>
                 </div>
             `;
-        });
-        if(countryName.length == 0){
-            result.innerHTML = `
-                <h3>Alert: Input field cannot be empty!</h3>
-            `
-        } else {
-            result.innerHTML = `
-                <h3>Alert: Please enter a valid country name!</h3>
-            `;
-        }
+        })
+        // Alert for blank and wrong input added
+        .catch(() => {
+            if (countryName.length == 0) {
+                result.innerHTML = `
+                    <h3>Alert: Input field cannot be empty!</h3>
+                `
+            } else {
+                result.innerHTML = `
+                    <h3>Alert: Please enter a valid country name!</h3>
+                `;
+            }
+        })
+
 })
